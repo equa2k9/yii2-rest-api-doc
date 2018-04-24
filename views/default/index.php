@@ -32,20 +32,21 @@ $methodColorMap = [
 
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <?php foreach ($rules as $ei => $entity) : ?>
+        <?php $title = str_replace('/','',$entity['title']);?>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?= $entity['title'] ?>">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?= $title ?>">
                             <?= $entity['title'] ?>
                         </a>
                     </h4>
                 </div>
-                <div id="<?= $entity['title'] ?>" class="panel-collapse collapse" role="tabpanel">
+                <div id="<?= $title ?>" class="panel-collapse collapse" role="tabpanel">
                     <div class="panel-body">
 
-                        <div class="list-group" id="<?= $entity['title'] ?>-list" role="tablist" aria-multiselectable="true">
+                        <div class="list-group" id="<?= $title ?>-list" role="tablist" aria-multiselectable="true">
                             <?php foreach ($entity['rules'] as $ri => $rule) : ?>
-                                <a class="endpoint-toggle list-group-item" role="button" data-parent="#<?= $entity['title'] ?>-list" data-toggle="collapse" href="#rule-<?= $ei ?>-<?= $ri ?>" aria-expanded="false" aria-controls="rule-<?= $ei ?>-<?= $ri ?>">
+                                <a class="endpoint-toggle list-group-item" role="button" data-parent="#<?= $title ?>-list" data-toggle="collapse" href="#rule-<?= $ei ?>-<?= $ri ?>" aria-expanded="false" aria-controls="rule-<?= $ei ?>-<?= $ri ?>">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <span class="label bg-<?= $methodColorMap[$rule['method']] ?> pull-left col-lg-1 method"><?= $rule['method'] ?></span>
