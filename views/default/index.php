@@ -46,6 +46,10 @@ $methodColorMap = [
 
                         <div class="list-group" id="<?= $title ?>-list" role="tablist" aria-multiselectable="true">
                             <?php foreach ($entity['rules'] as $ri => $rule) : ?>
+                            <?php if($rule['method']==='OPTIONS'):
+                                continue;
+                            endif;
+                            ?>
                                 <a class="endpoint-toggle list-group-item" role="button" data-parent="#<?= $title ?>-list" data-toggle="collapse" href="#rule-<?= $ei ?>-<?= $ri ?>" aria-expanded="false" aria-controls="rule-<?= $ei ?>-<?= $ri ?>">
                                     <div class="row">
                                         <div class="col-lg-12">
